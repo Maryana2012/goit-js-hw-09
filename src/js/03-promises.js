@@ -25,13 +25,13 @@ function handleAmount() {
 
 function createPromise(position, delay) {
     
-    return promise = new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
         const shouldResolve = Math.random() > 0.3;
         
         setTimeout(() => {
             if (shouldResolve) {
                 resolve({ position, delay });
-            } reject({ position, delay });
+            }   reject({ position, delay });
         }, delay);
     })
 }
@@ -57,7 +57,7 @@ function handleBtnCreate(event) {
                 });
         delay +=  step;
     }
-    
+
 }
 
 
