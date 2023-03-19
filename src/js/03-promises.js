@@ -23,18 +23,11 @@ function handleAmount() {
     const amountLs = localStorage.setItem("amount", amountValue);
 }
 
-    const delayLsGet = localStorage.getItem("delay");
-    const stepLsGet = localStorage.getItem("step");
-    const amountLsGet = localStorage.getItem("amount");
-    const amount = JSON.parse(amountLsGet); 
-    const step = JSON.parse(stepLsGet);
-    let delay = JSON.parse(delayLsGet);
-
 function createPromise(position, delay) {
     
     return promise = new Promise((resolve, reject) => {
         const shouldResolve = Math.random() > 0.3;
-
+        
         setTimeout(() => {
             if (shouldResolve) {
                 resolve({ position, delay });
@@ -45,6 +38,14 @@ function createPromise(position, delay) {
 
 function handleBtnCreate(event) {
     event.preventDefault();
+    
+    const delayLsGet = localStorage.getItem("delay");
+    const stepLsGet = localStorage.getItem("step");
+    const amountLsGet = localStorage.getItem("amount");
+    const amount = JSON.parse(amountLsGet); 
+    const step = JSON.parse(stepLsGet);
+    let delay = JSON.parse(delayLsGet);
+    
     for (let position = 1; position <= amount; position += 1){
             
            createPromise(position, delay)
